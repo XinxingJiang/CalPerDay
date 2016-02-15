@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B75EE2F81C71B2AB00DA00EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2F71C71B2AB00DA00EC /* AppDelegate.swift */; };
+		B75EE2FA1C71B2AB00DA00EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2F91C71B2AB00DA00EC /* ViewController.swift */; };
+		B75EE2FD1C71B2AB00DA00EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75EE2FB1C71B2AB00DA00EC /* Main.storyboard */; };
+		B75EE3001C71B2AB00DA00EC /* CalPerDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2FE1C71B2AB00DA00EC /* CalPerDay.xcdatamodeld */; };
+		B75EE3021C71B2AB00DA00EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75EE3011C71B2AB00DA00EC /* Assets.xcassets */; };
+		B75EE3051C71B2AB00DA00EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75EE3031C71B2AB00DA00EC /* LaunchScreen.storyboard */; };
+		B75EE3101C71B2AB00DA00EC /* CalPerDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE30F1C71B2AB00DA00EC /* CalPerDayTests.swift */; };
+		B75EE31B1C71B2AB00DA00EC /* CalPerDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE31A1C71B2AB00DA00EC /* CalPerDayUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B75EE30C1C71B2AB00DA00EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75EE2EC1C71B2AB00DA00EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75EE2F31C71B2AB00DA00EC;
+			remoteInfo = CalPerDay;
+		};
+		B75EE3171C71B2AB00DA00EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B75EE2EC1C71B2AB00DA00EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B75EE2F31C71B2AB00DA00EC;
+			remoteInfo = CalPerDay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B75EE2F41C71B2AB00DA00EC /* CalPerDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalPerDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75EE2F71C71B2AB00DA00EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B75EE2F91C71B2AB00DA00EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B75EE2FC1C71B2AB00DA00EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B75EE2FF1C71B2AB00DA00EC /* CalPerDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalPerDay.xcdatamodel; sourceTree = "<group>"; };
+		B75EE3011C71B2AB00DA00EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B75EE3041C71B2AB00DA00EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B75EE3061C71B2AB00DA00EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B75EE30B1C71B2AB00DA00EC /* CalPerDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalPerDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75EE30F1C71B2AB00DA00EC /* CalPerDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPerDayTests.swift; sourceTree = "<group>"; };
+		B75EE3111C71B2AB00DA00EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B75EE3161C71B2AB00DA00EC /* CalPerDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalPerDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75EE31A1C71B2AB00DA00EC /* CalPerDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPerDayUITests.swift; sourceTree = "<group>"; };
+		B75EE31C1C71B2AB00DA00EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B75EE2F11C71B2AB00DA00EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75EE3081C71B2AB00DA00EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75EE3131C71B2AB00DA00EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B75EE2EB1C71B2AB00DA00EC = {
+			isa = PBXGroup;
+			children = (
+				B75EE2F61C71B2AB00DA00EC /* CalPerDay */,
+				B75EE30E1C71B2AB00DA00EC /* CalPerDayTests */,
+				B75EE3191C71B2AB00DA00EC /* CalPerDayUITests */,
+				B75EE2F51C71B2AB00DA00EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B75EE2F51C71B2AB00DA00EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B75EE2F41C71B2AB00DA00EC /* CalPerDay.app */,
+				B75EE30B1C71B2AB00DA00EC /* CalPerDayTests.xctest */,
+				B75EE3161C71B2AB00DA00EC /* CalPerDayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B75EE2F61C71B2AB00DA00EC /* CalPerDay */ = {
+			isa = PBXGroup;
+			children = (
+				B75EE2F71C71B2AB00DA00EC /* AppDelegate.swift */,
+				B75EE2F91C71B2AB00DA00EC /* ViewController.swift */,
+				B75EE2FB1C71B2AB00DA00EC /* Main.storyboard */,
+				B75EE3011C71B2AB00DA00EC /* Assets.xcassets */,
+				B75EE3031C71B2AB00DA00EC /* LaunchScreen.storyboard */,
+				B75EE3061C71B2AB00DA00EC /* Info.plist */,
+				B75EE2FE1C71B2AB00DA00EC /* CalPerDay.xcdatamodeld */,
+			);
+			path = CalPerDay;
+			sourceTree = "<group>";
+		};
+		B75EE30E1C71B2AB00DA00EC /* CalPerDayTests */ = {
+			isa = PBXGroup;
+			children = (
+				B75EE30F1C71B2AB00DA00EC /* CalPerDayTests.swift */,
+				B75EE3111C71B2AB00DA00EC /* Info.plist */,
+			);
+			path = CalPerDayTests;
+			sourceTree = "<group>";
+		};
+		B75EE3191C71B2AB00DA00EC /* CalPerDayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B75EE31A1C71B2AB00DA00EC /* CalPerDayUITests.swift */,
+				B75EE31C1C71B2AB00DA00EC /* Info.plist */,
+			);
+			path = CalPerDayUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B75EE2F31C71B2AB00DA00EC /* CalPerDay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75EE31F1C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDay" */;
+			buildPhases = (
+				B75EE2F01C71B2AB00DA00EC /* Sources */,
+				B75EE2F11C71B2AB00DA00EC /* Frameworks */,
+				B75EE2F21C71B2AB00DA00EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalPerDay;
+			productName = CalPerDay;
+			productReference = B75EE2F41C71B2AB00DA00EC /* CalPerDay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B75EE30A1C71B2AB00DA00EC /* CalPerDayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75EE3221C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDayTests" */;
+			buildPhases = (
+				B75EE3071C71B2AB00DA00EC /* Sources */,
+				B75EE3081C71B2AB00DA00EC /* Frameworks */,
+				B75EE3091C71B2AB00DA00EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B75EE30D1C71B2AB00DA00EC /* PBXTargetDependency */,
+			);
+			name = CalPerDayTests;
+			productName = CalPerDayTests;
+			productReference = B75EE30B1C71B2AB00DA00EC /* CalPerDayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B75EE3151C71B2AB00DA00EC /* CalPerDayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B75EE3251C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDayUITests" */;
+			buildPhases = (
+				B75EE3121C71B2AB00DA00EC /* Sources */,
+				B75EE3131C71B2AB00DA00EC /* Frameworks */,
+				B75EE3141C71B2AB00DA00EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B75EE3181C71B2AB00DA00EC /* PBXTargetDependency */,
+			);
+			name = CalPerDayUITests;
+			productName = CalPerDayUITests;
+			productReference = B75EE3161C71B2AB00DA00EC /* CalPerDayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B75EE2EC1C71B2AB00DA00EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = jiang;
+				TargetAttributes = {
+					B75EE2F31C71B2AB00DA00EC = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					B75EE30A1C71B2AB00DA00EC = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = B75EE2F31C71B2AB00DA00EC;
+					};
+					B75EE3151C71B2AB00DA00EC = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = B75EE2F31C71B2AB00DA00EC;
+					};
+				};
+			};
+			buildConfigurationList = B75EE2EF1C71B2AB00DA00EC /* Build configuration list for PBXProject "CalPerDay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B75EE2EB1C71B2AB00DA00EC;
+			productRefGroup = B75EE2F51C71B2AB00DA00EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B75EE2F31C71B2AB00DA00EC /* CalPerDay */,
+				B75EE30A1C71B2AB00DA00EC /* CalPerDayTests */,
+				B75EE3151C71B2AB00DA00EC /* CalPerDayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B75EE2F21C71B2AB00DA00EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75EE3051C71B2AB00DA00EC /* LaunchScreen.storyboard in Resources */,
+				B75EE3021C71B2AB00DA00EC /* Assets.xcassets in Resources */,
+				B75EE2FD1C71B2AB00DA00EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75EE3091C71B2AB00DA00EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75EE3141C71B2AB00DA00EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B75EE2F01C71B2AB00DA00EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75EE3001C71B2AB00DA00EC /* CalPerDay.xcdatamodeld in Sources */,
+				B75EE2FA1C71B2AB00DA00EC /* ViewController.swift in Sources */,
+				B75EE2F81C71B2AB00DA00EC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75EE3071C71B2AB00DA00EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75EE3101C71B2AB00DA00EC /* CalPerDayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B75EE3121C71B2AB00DA00EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75EE31B1C71B2AB00DA00EC /* CalPerDayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B75EE30D1C71B2AB00DA00EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75EE2F31C71B2AB00DA00EC /* CalPerDay */;
+			targetProxy = B75EE30C1C71B2AB00DA00EC /* PBXContainerItemProxy */;
+		};
+		B75EE3181C71B2AB00DA00EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B75EE2F31C71B2AB00DA00EC /* CalPerDay */;
+			targetProxy = B75EE3171C71B2AB00DA00EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B75EE2FB1C71B2AB00DA00EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B75EE2FC1C71B2AB00DA00EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B75EE3031C71B2AB00DA00EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B75EE3041C71B2AB00DA00EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B75EE31D1C71B2AB00DA00EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B75EE31E1C71B2AB00DA00EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B75EE3201C71B2AB00DA00EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CalPerDay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.CalPerDay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B75EE3211C71B2AB00DA00EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CalPerDay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.CalPerDay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B75EE3231C71B2AB00DA00EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CalPerDayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.CalPerDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalPerDay.app/CalPerDay";
+			};
+			name = Debug;
+		};
+		B75EE3241C71B2AB00DA00EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CalPerDayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.CalPerDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalPerDay.app/CalPerDay";
+			};
+			name = Release;
+		};
+		B75EE3261C71B2AB00DA00EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CalPerDayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.CalPerDayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CalPerDay;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B75EE3271C71B2AB00DA00EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CalPerDayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiang.CalPerDayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CalPerDay;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B75EE2EF1C71B2AB00DA00EC /* Build configuration list for PBXProject "CalPerDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75EE31D1C71B2AB00DA00EC /* Debug */,
+				B75EE31E1C71B2AB00DA00EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B75EE31F1C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75EE3201C71B2AB00DA00EC /* Debug */,
+				B75EE3211C71B2AB00DA00EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B75EE3221C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75EE3231C71B2AB00DA00EC /* Debug */,
+				B75EE3241C71B2AB00DA00EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B75EE3251C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B75EE3261C71B2AB00DA00EC /* Debug */,
+				B75EE3271C71B2AB00DA00EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B75EE2FE1C71B2AB00DA00EC /* CalPerDay.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B75EE2FF1C71B2AB00DA00EC /* CalPerDay.xcdatamodel */,
+			);
+			currentVersion = B75EE2FF1C71B2AB00DA00EC /* CalPerDay.xcdatamodel */;
+			path = CalPerDay.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B75EE2EC1C71B2AB00DA00EC /* Project object */;
+}
