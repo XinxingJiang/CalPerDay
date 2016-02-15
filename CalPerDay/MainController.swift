@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainController.swift
 //  CalPerDay
 //
 //  Created by Xinxing Jiang on 2/15/16.
@@ -8,8 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainController: UIViewController {
 
+    var mainView: MainView!
+    
+    // MARK: - VC life cycle
+    
+    override func loadView() {
+        super.loadView()
+        mainView = MainView(mainController: self)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B75EE2F81C71B2AB00DA00EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2F71C71B2AB00DA00EC /* AppDelegate.swift */; };
-		B75EE2FA1C71B2AB00DA00EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2F91C71B2AB00DA00EC /* ViewController.swift */; };
+		B75EE2FA1C71B2AB00DA00EC /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2F91C71B2AB00DA00EC /* MainController.swift */; };
 		B75EE2FD1C71B2AB00DA00EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75EE2FB1C71B2AB00DA00EC /* Main.storyboard */; };
 		B75EE3001C71B2AB00DA00EC /* CalPerDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B75EE2FE1C71B2AB00DA00EC /* CalPerDay.xcdatamodeld */; };
 		B75EE3021C71B2AB00DA00EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75EE3011C71B2AB00DA00EC /* Assets.xcassets */; };
 		B75EE3051C71B2AB00DA00EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75EE3031C71B2AB00DA00EC /* LaunchScreen.storyboard */; };
 		B75EE3101C71B2AB00DA00EC /* CalPerDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE30F1C71B2AB00DA00EC /* CalPerDayTests.swift */; };
 		B75EE31B1C71B2AB00DA00EC /* CalPerDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE31A1C71B2AB00DA00EC /* CalPerDayUITests.swift */; };
+		B75EE32C1C71B6E200DA00EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75EE32B1C71B6E200DA00EC /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		B75EE2F41C71B2AB00DA00EC /* CalPerDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalPerDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75EE2F71C71B2AB00DA00EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B75EE2F91C71B2AB00DA00EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B75EE2F91C71B2AB00DA00EC /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		B75EE2FC1C71B2AB00DA00EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B75EE2FF1C71B2AB00DA00EC /* CalPerDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalPerDay.xcdatamodel; sourceTree = "<group>"; };
 		B75EE3011C71B2AB00DA00EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		B75EE3161C71B2AB00DA00EC /* CalPerDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalPerDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75EE31A1C71B2AB00DA00EC /* CalPerDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPerDayUITests.swift; sourceTree = "<group>"; };
 		B75EE31C1C71B2AB00DA00EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B75EE32B1C71B6E200DA00EC /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				B75EE2F71C71B2AB00DA00EC /* AppDelegate.swift */,
-				B75EE2F91C71B2AB00DA00EC /* ViewController.swift */,
+				B75EE3281C71B5B600DA00EC /* Model */,
+				B75EE32A1C71B5D000DA00EC /* Controller */,
+				B75EE3291C71B5C700DA00EC /* View */,
 				B75EE2FB1C71B2AB00DA00EC /* Main.storyboard */,
 				B75EE3011C71B2AB00DA00EC /* Assets.xcassets */,
 				B75EE3031C71B2AB00DA00EC /* LaunchScreen.storyboard */,
@@ -126,6 +130,29 @@
 				B75EE31C1C71B2AB00DA00EC /* Info.plist */,
 			);
 			path = CalPerDayUITests;
+			sourceTree = "<group>";
+		};
+		B75EE3281C71B5B600DA00EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B75EE3291C71B5C700DA00EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B75EE32B1C71B6E200DA00EC /* MainView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B75EE32A1C71B5D000DA00EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B75EE2F91C71B2AB00DA00EC /* MainController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75EE3001C71B2AB00DA00EC /* CalPerDay.xcdatamodeld in Sources */,
-				B75EE2FA1C71B2AB00DA00EC /* ViewController.swift in Sources */,
+				B75EE32C1C71B6E200DA00EC /* MainView.swift in Sources */,
+				B75EE2FA1C71B2AB00DA00EC /* MainController.swift in Sources */,
 				B75EE2F81C71B2AB00DA00EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +514,7 @@
 				B75EE3211C71B2AB00DA00EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B75EE3221C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDayTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +523,7 @@
 				B75EE3241C71B2AB00DA00EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B75EE3251C71B2AB00DA00EC /* Build configuration list for PBXNativeTarget "CalPerDayUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +532,7 @@
 				B75EE3271C71B2AB00DA00EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
