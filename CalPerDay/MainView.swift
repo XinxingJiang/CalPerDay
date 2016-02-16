@@ -26,6 +26,12 @@ class MainView: UIView {
     var weightTextField: UITextField!
     var weightUnitLabel: UILabel!
     
+    var heightLabel: UILabel!
+    var firstHeightTextField: UITextField!
+    var firstHeightUnitLabel: UILabel!
+    var secondHeightTextField: UITextField!
+    var secondHeightUnitLabel: UILabel!
+    
     convenience init(mainController: MainController) {
         self.init()
         self.backgroundColor = Constants.BackgroundColor
@@ -45,6 +51,7 @@ class MainView: UIView {
         initUnitPart()
         initGenderPart()
         initWeightPart()
+        initHeightPart()
     }
     
     // MARK: - Unit part
@@ -196,32 +203,113 @@ class MainView: UIView {
         self.addConstraints([centerYCon, leadingCon])
     }
     
+    // MARK: - Height part
+    
+    private func initHeightPart() {
+        initHeightLabel()
+        initFirstHeightTextField()
+        initFirstHeightUnitLabel()
+        initSecondHeightTextField()
+        initSecondHeightUnitLabel()
+    }
+    
+    private func initHeightLabel() {
+        heightLabel = UILabel()
+        heightLabel.text = Constants.HeightLabelText
+        
+        self.addSubview(heightLabel)
+        heightLabel.translatesAutoresizingMaskIntoConstraints = false
+        let topCon = NSLayoutConstraint(item: heightLabel, attribute: .Top, relatedBy: .Equal, toItem: weightLabel, attribute: .Bottom, multiplier: 1, constant: Constants.HeightLabelTopGap)
+        let leadingCon = NSLayoutConstraint(item: heightLabel, attribute: .Leading, relatedBy: .Equal, toItem: weightLabel, attribute: .Leading, multiplier: 1, constant: 0)
+        self.addConstraints([topCon, leadingCon])
+    }
+    
+    private func initFirstHeightTextField() {
+        firstHeightTextField = UITextField()
+        firstHeightTextField.keyboardType = .NumberPad
+        firstHeightTextField.borderStyle = .RoundedRect
+        
+        self.addSubview(firstHeightTextField)
+        firstHeightTextField.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: firstHeightTextField, attribute: .CenterY, relatedBy: .Equal, toItem: heightLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: firstHeightTextField, attribute: .Leading, relatedBy: .Equal, toItem: weightTextField, attribute: .Leading, multiplier: 1, constant: 0)
+        let widthCon = NSLayoutConstraint(item: firstHeightTextField, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: Constants.FirstHeightTextFieldWidth)
+        self.addConstraints([centerYCon, leadingCon, widthCon])
+    }
+    
+    private func initFirstHeightUnitLabel() {
+        firstHeightUnitLabel = UILabel()
+        firstHeightUnitLabel.text = Constants.FirstHeightUnitLabelUSText
+        
+        self.addSubview(firstHeightUnitLabel)
+        firstHeightUnitLabel.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: firstHeightUnitLabel, attribute: .CenterY, relatedBy: .Equal, toItem: firstHeightTextField, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: firstHeightUnitLabel, attribute: .Leading, relatedBy: .Equal, toItem: weightUnitLabel, attribute: .Leading, multiplier: 1, constant: 0)
+        self.addConstraints([centerYCon, leadingCon])
+    }
+    
+    private func initSecondHeightTextField() {
+        secondHeightTextField = UITextField()
+        secondHeightTextField.keyboardType = .NumberPad
+        secondHeightTextField.borderStyle = .RoundedRect
+        
+        self.addSubview(secondHeightTextField)
+        secondHeightTextField.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: secondHeightTextField, attribute: .CenterY, relatedBy: .Equal, toItem: heightLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: secondHeightTextField, attribute: .Leading, relatedBy: .Equal, toItem: firstHeightUnitLabel, attribute: .Trailing, multiplier: 1, constant: Constants.SecondHeightTextFieldLeadingCon)
+        let widthCon = NSLayoutConstraint(item: secondHeightTextField, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: Constants.SecondHeightTextFieldWidth)
+        self.addConstraints([centerYCon, leadingCon, widthCon])
+    }
+    
+    private func initSecondHeightUnitLabel() {
+        secondHeightUnitLabel = UILabel()
+        secondHeightUnitLabel.text = Constants.SecondHeightUnitLabelUSText
+        
+        self.addSubview(secondHeightUnitLabel)
+        secondHeightUnitLabel.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: secondHeightUnitLabel, attribute: .CenterY, relatedBy: .Equal, toItem: firstHeightTextField, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: secondHeightUnitLabel, attribute: .Leading, relatedBy: .Equal, toItem: secondHeightTextField, attribute: .Trailing, multiplier: 1, constant: Constants.SecondHeightUnitLabelLeadingCon)
+        self.addConstraints([centerYCon, leadingCon])
+    }
+    
     // MARK: - Constants
     
     struct Constants {
         static let BackgroundColor = UIColor.whiteColor()
 
+        static let RegularGap = CGFloat(20)
+        
         static let UsUnitLabelText = "US"
         static let I18nUnitLabelText = "Metric"
-        static let UsUnitLabelTopGap = CGFloat(20)
-        static let UsUnitLabelTrailingGap = CGFloat(-20)
-        static let UsUnitSwitchTrailingGap = CGFloat(-20)
-        static let I18nUnitSwitchLeadingGap = CGFloat(20)
-        static let I18nUnitLabelLeadingGap = CGFloat(20)
+        static let UsUnitLabelTopGap = RegularGap
+        static let UsUnitLabelTrailingGap = -RegularGap
+        static let UsUnitSwitchTrailingGap = -RegularGap
+        static let I18nUnitSwitchLeadingGap = RegularGap
+        static let I18nUnitLabelLeadingGap = RegularGap
         
         static let FemaleLabelText = "Female"
         static let MaleLabelText = "Male"
-        static let FemaleSwitchTopGap = CGFloat(20)
-        static let FemaleLabelLeadingGap = CGFloat(20)
-        static let MaleSwitchLeadingGap = CGFloat(20)
-        static let MaleLabelLeadingGap = CGFloat(20)
+        static let FemaleSwitchTopGap = RegularGap
+        static let FemaleLabelLeadingGap = RegularGap
+        static let MaleSwitchLeadingGap = RegularGap
+        static let MaleLabelLeadingGap = RegularGap
         
         static let WeightLabelText = "Weight"
         static let WeightUnitLabelUSText = "lbs"
         static let WeightUnitLabelI18nText = "kg"
-        static let WeightLabelTopGap = CGFloat(20)
-        static let WeightTextFieldLeadingGap = CGFloat(20)
-        static let WeightTextFieldWidth = CGFloat(60)
-        static let WeightUnitLabelLeadingGap = CGFloat(20)
+        static let WeightLabelTopGap = RegularGap
+        static let WeightTextFieldLeadingGap = RegularGap
+        static let WeightTextFieldWidth = 3 * RegularGap
+        static let WeightUnitLabelLeadingGap = RegularGap
+        
+        static let HeightLabelText = "Height"
+        static let FirstHeightUnitLabelUSText = "ft"
+        static let FirstHeightUnitLabelMetricText = "cm"
+        static let SecondHeightUnitLabelUSText = "in"
+        static let HeightLabelTopGap = RegularGap
+        static let FirstHeightTextFieldWidth = WeightTextFieldWidth
+        static let SecondHeightTextFieldLeadingCon = RegularGap
+        static let SecondHeightTextFieldWidth = WeightTextFieldWidth
+        static let SecondHeightUnitLabelLeadingCon = RegularGap
     }
 }

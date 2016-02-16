@@ -45,6 +45,8 @@ class MainController: UIViewController {
     }
     
     private func convertWeight() {
+        mainView.weightTextField.resignFirstResponder()
+        
         calculatorBrain.isUsUnitSelected = mainView.usUnitSwitch.on
         
         if calculatorBrain.isUsUnitSelected! { // convert to metric unit
