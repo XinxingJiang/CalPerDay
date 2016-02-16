@@ -174,7 +174,7 @@ class MainView: UIView {
     
     private func initWeightTextField() {
         weightTextField = UITextField()
-        weightTextField.keyboardType = .DecimalPad
+        weightTextField.keyboardType = .NumberPad
         weightTextField.borderStyle = .RoundedRect
         
         self.addSubview(weightTextField)
