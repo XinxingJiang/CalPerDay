@@ -22,7 +22,18 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        mainView.usUnitSwitch.addTarget(self, action: Selector("usUnitSelected"), forControlEvents: UIControlEvents.TouchUpInside)
+        mainView.i18nUnitSwitch.addTarget(self, action: Selector("i18nUnitSelected"), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    // MARK: - Action
+    
+    func usUnitSelected() {
+        mainView.i18nUnitSwitch.on = !mainView.usUnitSwitch.on
+    }
+    
+    func i18nUnitSelected() {
+        mainView.usUnitSwitch.on = !mainView.i18nUnitSwitch.on
     }
 
     override func didReceiveMemoryWarning() {
