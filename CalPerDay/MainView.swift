@@ -22,6 +22,10 @@ class MainView: UIView {
     var femaleLabel: UILabel!
     var maleLabel: UILabel!
     
+    var weightLabel: UILabel!
+    var weightTextField: UITextField!
+    var weightUnitLabel: UILabel!
+    
     convenience init(mainController: MainController) {
         self.init()
         self.backgroundColor = Constants.BackgroundColor
@@ -40,6 +44,7 @@ class MainView: UIView {
     private func initSubviews() {
         initUnitPart()
         initGenderPart()
+        initWeightPart()
     }
     
     // MARK: - Unit part
@@ -48,7 +53,7 @@ class MainView: UIView {
         initUsUnitLabel()
         initUsUnitSwitch()
         initI18nUnitSwitch()
-        initI18nUnitLabel()        
+        initI18nUnitLabel()
     }
     
     private func initUsUnitLabel() {
@@ -148,6 +153,49 @@ class MainView: UIView {
         self.addConstraints([centerYCon, leadingCon])
     }
     
+    // MARK: - Weight part
+    
+    private func initWeightPart() {
+        initWeightLabel()
+        initWeightTextField()
+        initWeightUnitLabel()
+    }
+    
+    private func initWeightLabel() {
+        weightLabel = UILabel()
+        weightLabel.text = Constants.WeightLabelText
+        
+        self.addSubview(weightLabel)
+        weightLabel.translatesAutoresizingMaskIntoConstraints = false
+        let topCon = NSLayoutConstraint(item: weightLabel, attribute: .Top, relatedBy: .Equal, toItem: femaleSwitch, attribute: .Bottom, multiplier: 1, constant: Constants.WeightLabelTopGap)
+        let leadingCon = NSLayoutConstraint(item: weightLabel, attribute: .Leading, relatedBy: .Equal, toItem: femaleSwitch, attribute: .Leading, multiplier: 1, constant: 0)
+        self.addConstraints([topCon, leadingCon])
+    }
+    
+    private func initWeightTextField() {
+        weightTextField = UITextField()
+        weightTextField.keyboardType = .DecimalPad
+        weightTextField.borderStyle = .RoundedRect
+        
+        self.addSubview(weightTextField)
+        weightTextField.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: weightTextField, attribute: .CenterY, relatedBy: .Equal, toItem: weightLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: weightTextField, attribute: .Leading, relatedBy: .Equal, toItem: weightLabel, attribute: .Trailing, multiplier: 1, constant: Constants.WeightTextFieldLeadingGap)
+        let widthCon = NSLayoutConstraint(item: weightTextField, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: Constants.WeightTextFieldWidth)
+        self.addConstraints([centerYCon, leadingCon, widthCon])
+    }
+    
+    private func initWeightUnitLabel() {
+        weightUnitLabel = UILabel()
+        weightUnitLabel.text = Constants.WeightUnitLabelUSText
+        
+        self.addSubview(weightUnitLabel)
+        weightUnitLabel.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: weightUnitLabel, attribute: .CenterY, relatedBy: .Equal, toItem: weightTextField, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: weightUnitLabel, attribute: .Leading, relatedBy: .Equal, toItem: weightTextField, attribute: .Trailing, multiplier: 1, constant: Constants.WeightUnitLabelLeadingGap)
+        self.addConstraints([centerYCon, leadingCon])
+    }
+    
     // MARK: - Constants
     
     struct Constants {
@@ -167,5 +215,13 @@ class MainView: UIView {
         static let FemaleLabelLeadingGap = CGFloat(20)
         static let MaleSwitchLeadingGap = CGFloat(20)
         static let MaleLabelLeadingGap = CGFloat(20)
+        
+        static let WeightLabelText = "Weight"
+        static let WeightUnitLabelUSText = "lbs"
+        static let WeightUnitLabelI18nText = "kg"
+        static let WeightLabelTopGap = CGFloat(20)
+        static let WeightTextFieldLeadingGap = CGFloat(20)
+        static let WeightTextFieldWidth = CGFloat(60)
+        static let WeightUnitLabelLeadingGap = CGFloat(20)
     }
 }
