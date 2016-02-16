@@ -24,6 +24,8 @@ class MainController: UIViewController {
         super.viewDidLoad()
         mainView.usUnitSwitch.addTarget(self, action: Selector("usUnitSelected"), forControlEvents: UIControlEvents.TouchUpInside)
         mainView.i18nUnitSwitch.addTarget(self, action: Selector("i18nUnitSelected"), forControlEvents: UIControlEvents.TouchUpInside)
+        mainView.femaleSwitch.addTarget(self, action: Selector("femaleSelected"), forControlEvents: UIControlEvents.TouchUpInside)
+        mainView.maleSwitch.addTarget(self, action: Selector("maleSelected"), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     // MARK: - Action
@@ -35,12 +37,13 @@ class MainController: UIViewController {
     func i18nUnitSelected() {
         mainView.usUnitSwitch.on = !mainView.i18nUnitSwitch.on
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func femaleSelected() {
+        mainView.maleSwitch.on = !mainView.femaleSwitch.on
     }
-
-
+    
+    func maleSelected() {
+        mainView.femaleSwitch.on = !mainView.maleSwitch.on
+    }
 }
 

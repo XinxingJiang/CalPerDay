@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalPerDay/MainView.swift"
-            timestampString = "477283276.151263"
+            timestampString = "477293081.206973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "initUsUnitLabel()"
             landmarkType = "5">
          </BreakpointContent>
