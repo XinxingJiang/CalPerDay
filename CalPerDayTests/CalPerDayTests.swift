@@ -21,16 +21,19 @@ class CalPerDayTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUnitConversion() {
+        let calculatorBrain = CalculatorBrain()
+        XCTAssertEqualWithAccuracy(calculatorBrain.weightInMetricUnit(lbs: 1), 0.45, accuracy: 0.01)
+        XCTAssertEqualWithAccuracy(calculatorBrain.weightInUsUnit(kg: 1), 2.20, accuracy: 0.01)
+        XCTAssertEqualWithAccuracy(calculatorBrain.heightInUsUnit(cm: 180).0, 5, accuracy: 0.01)
+        XCTAssertEqualWithAccuracy(calculatorBrain.heightInUsUnit(cm: 180).1, 10.87, accuracy: 0.01)
+        XCTAssertEqualWithAccuracy(calculatorBrain.heightInMetricUnit(feet: 5, inch: 11), 180.34, accuracy: 0.01)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measureBlock {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
 }

@@ -32,6 +32,14 @@ class MainView: UIView {
     var secondHeightTextField: UITextField!
     var secondHeightUnitLabel: UILabel!
     
+    var ageLabel: UILabel!
+    var ageTextField: UITextField!
+    
+    var activityLevelLabel: UILabel!
+    var activityLevelButton: UIButton!
+    
+    // MARK: - Init
+    
     convenience init(mainController: MainController) {
         self.init()
         self.backgroundColor = Constants.BackgroundColor
@@ -52,6 +60,8 @@ class MainView: UIView {
         initGenderPart()
         initWeightPart()
         initHeightPart()
+        initAgePart()
+        initActivityLevelPart()
     }
     
     // MARK: - Unit part
@@ -272,6 +282,68 @@ class MainView: UIView {
         self.addConstraints([centerYCon, leadingCon])
     }
     
+    // MARK: - Age part
+    
+    private func initAgePart() {
+        initAgeLabel()
+        initAgeTextField()
+    }
+    
+    private func initAgeLabel() {
+        ageLabel = UILabel()
+        ageLabel.text = Constants.AgeLabelText
+        
+        self.addSubview(ageLabel)
+        ageLabel.translatesAutoresizingMaskIntoConstraints = false
+        let topCon = NSLayoutConstraint(item: ageLabel, attribute: .Top, relatedBy: .Equal, toItem: heightLabel, attribute: .Bottom, multiplier: 1, constant: Constants.AgeLabelTopGap)
+        let leadingCon = NSLayoutConstraint(item: ageLabel, attribute: .Leading, relatedBy: .Equal, toItem: heightLabel, attribute: .Leading, multiplier: 1, constant: 0)
+        self.addConstraints([topCon, leadingCon])
+    }
+    
+    private func initAgeTextField() {
+        ageTextField = UITextField()
+        ageTextField.keyboardType = .NumberPad
+        ageTextField.borderStyle = .RoundedRect
+        
+        self.addSubview(ageTextField)
+        ageTextField.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: ageTextField, attribute: .CenterY, relatedBy: .Equal, toItem: ageLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: ageTextField, attribute: .Leading, relatedBy: .Equal, toItem: firstHeightTextField, attribute: .Leading, multiplier: 1, constant: 0)
+        let widthCon = NSLayoutConstraint(item: ageTextField, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: Constants.WeightTextFieldWidth)
+        self.addConstraints([centerYCon, leadingCon, widthCon])
+    }
+    
+    // MARK: - Activity level part
+    
+    private func initActivityLevelPart() {
+        initActivityLevelLabel()
+        initActivityLevelButton()
+    }
+    
+    private func initActivityLevelLabel() {
+        activityLevelLabel = UILabel()
+        activityLevelLabel.text = Constants.ActivityLevelLabelText
+        
+        self.addSubview(activityLevelLabel)
+        activityLevelLabel.translatesAutoresizingMaskIntoConstraints = false
+        let topCon = NSLayoutConstraint(item: activityLevelLabel, attribute: .Top, relatedBy: .Equal, toItem: ageLabel, attribute: .Bottom, multiplier: 1, constant: Constants.ActivityLevelLabelTopGap)
+        let leadingCon = NSLayoutConstraint(item: activityLevelLabel, attribute: .Leading, relatedBy: .Equal, toItem: ageLabel, attribute: .Leading, multiplier: 1, constant: 0)
+        self.addConstraints([topCon, leadingCon])
+    }
+    
+    private func initActivityLevelButton() {
+        activityLevelButton = UIButton(type: UIButtonType.System)
+        activityLevelButton.setTitle(Constants.ActivityLevels[0], forState: UIControlState.Normal)
+        
+        self.addSubview(activityLevelButton)
+        activityLevelButton.translatesAutoresizingMaskIntoConstraints = false
+        let centerYCon = NSLayoutConstraint(item: activityLevelButton, attribute: .CenterY, relatedBy: .Equal, toItem: activityLevelLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+        let leadingCon = NSLayoutConstraint(item: activityLevelButton, attribute: .Leading, relatedBy: .Equal, toItem: activityLevelLabel, attribute: .Trailing, multiplier: 1, constant: Constants.ActivityLevelButtonLeadingGap)
+        let widthCon = NSLayoutConstraint(item: activityLevelButton, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: Constants.ActivityLevelButtonWidth)
+        let heightCon = NSLayoutConstraint(item: activityLevelButton, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: Constants.ActivityLevelButtonHeight)
+        self.addConstraints([centerYCon, leadingCon, widthCon, heightCon])
+    }
+    
     // MARK: - Constants
     
     struct Constants {
@@ -281,7 +353,7 @@ class MainView: UIView {
         
         static let UsUnitLabelText = "US"
         static let I18nUnitLabelText = "Metric"
-        static let UsUnitLabelTopGap = RegularGap
+        static let UsUnitLabelTopGap = 2 * RegularGap
         static let UsUnitLabelTrailingGap = -RegularGap
         static let UsUnitSwitchTrailingGap = -RegularGap
         static let I18nUnitSwitchLeadingGap = RegularGap
@@ -311,5 +383,16 @@ class MainView: UIView {
         static let SecondHeightTextFieldLeadingCon = RegularGap
         static let SecondHeightTextFieldWidth = WeightTextFieldWidth
         static let SecondHeightUnitLabelLeadingCon = RegularGap
+        
+        static let AgeLabelText = "Age"
+        static let AgeLabelTopGap = RegularGap
+        static let AgeTextFieldWidth = WeightTextFieldWidth
+
+        static let ActivityLevelLabelText = "Activity Level"
+        static let ActivityLevels = ["Sedentary", "Lightly Active", "Moderately Active", "Very Active", "Exetremely Active"]
+        static let ActivityLevelLabelTopGap = RegularGap
+        static let ActivityLevelButtonWidth = 8 * RegularGap
+        static let ActivityLevelButtonHeight = RegularGap
+        static let ActivityLevelButtonLeadingGap = RegularGap
     }
 }
