@@ -21,8 +21,12 @@ class MainController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var maleSwitch: UISwitch!
     
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var weightUnitLabel: UILabel!
+    
     @IBOutlet weak var heightTextField1: UITextField!
+    @IBOutlet weak var heightUnitLabel1: UILabel!
     @IBOutlet weak var heightTextField2: UITextField!
+    @IBOutlet weak var heightUnitLabel2: UILabel!
     
     @IBOutlet weak var ageTextField: UITextField!
     
@@ -100,6 +104,7 @@ class MainController: UIViewController, UITextFieldDelegate {
     }
     
     private func convertWeight() {
+        weightUnitLabel.text = usUnitSwitch.on ? "lbs" : "kg"
 //        mainView.weightTextField.resignFirstResponder()
 //        
 //        calculatorBrain.isUsUnitSelected = mainView.usUnitSwitch.on
@@ -116,6 +121,9 @@ class MainController: UIViewController, UITextFieldDelegate {
     }
     
     private func convertHeight() {
+        heightUnitLabel1.text = usUnitSwitch.on ? "ft" : "cm"
+        heightTextField2.hidden = !usUnitSwitch.on
+        heightUnitLabel2.hidden = !usUnitSwitch.on
 //        mainView.firstHeightTextField.resignFirstResponder()
 //        mainView.secondHeightTextField.resignFirstResponder()
 //        

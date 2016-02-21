@@ -353,11 +353,14 @@
                         <outlet property="femaleSwitch" destination="ESP-sz-a0P" id="Izg-Ho-GnS"/>
                         <outlet property="heightTextField1" destination="sHh-5r-ygh" id="Tpv-mL-LKB"/>
                         <outlet property="heightTextField2" destination="F6h-Po-GFV" id="oxs-RI-wCM"/>
+                        <outlet property="heightUnitLabel1" destination="MOo-sp-fya" id="P9O-J8-tKK"/>
+                        <outlet property="heightUnitLabel2" destination="iQ1-xE-MLt" id="DZX-si-3hP"/>
                         <outlet property="maleSwitch" destination="ix3-DB-fFG" id="orZ-ec-Jok"/>
                         <outlet property="metricUnitSwitch" destination="91m-M8-XRu" id="aaB-zt-wPT"/>
                         <outlet property="restingMetabolismCalPerDayLabel" destination="IpP-C5-N4R" id="N7L-Hi-lTY"/>
                         <outlet property="usUnitSwitch" destination="MoL-zK-0qV" id="ErV-SM-1Ga"/>
                         <outlet property="weightTextField" destination="CCm-mZ-uNM" id="nNX-4n-45S"/>
+                        <outlet property="weightUnitLabel" destination="7fN-hQ-bs1" id="cZH-kG-XDb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
