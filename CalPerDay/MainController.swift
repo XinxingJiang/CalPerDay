@@ -36,6 +36,9 @@ class MainController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var actualMetabolismCalPerHourLabel: UILabel!
     @IBOutlet weak var restingMetabolismCalPerDayLabel: UILabel!
     
+    
+    var alertController: UIAlertController!
+    
 //    var weightInMetricUnit: Double {
 //        get {
 //            if calculatorBrain.isUsUnitSelected! { // us unit
@@ -61,6 +64,22 @@ class MainController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         calculatorBrain = CalculatorBrain(isUsUnitSelected: true, isFemaleSelected: true)
+        alertController = UIAlertController(title: "Activity Level", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        alertController.addAction(UIAlertAction(title: "Sedentary", style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle("Sedentary", forState: UIControlState.Normal)
+        }))
+        alertController.addAction(UIAlertAction(title: "Lightly Active", style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle("Lightly Active", forState: UIControlState.Normal)
+        }))
+        alertController.addAction(UIAlertAction(title: "Moderately Active", style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle("Moderately Active", forState: UIControlState.Normal)
+        }))
+        alertController.addAction(UIAlertAction(title: "Very Active", style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle("Very Active", forState: UIControlState.Normal)
+        }))
+        alertController.addAction(UIAlertAction(title: "Extremely Active", style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle("Extremely Active", forState: UIControlState.Normal)
+        }))
     }
     
     // MARK: - Text field delegate
@@ -101,6 +120,13 @@ class MainController: UIViewController, UITextFieldDelegate {
     
     @IBAction func clickMale() {
         femaleSwitch.on = !maleSwitch.on
+    }
+    
+    @IBAction func clickActvityLevelButton(sender: UIButton) {
+        presentViewController(alertController, animated: false) {
+            
+        }
+        print(1)
     }
     
     private func convertWeight() {
