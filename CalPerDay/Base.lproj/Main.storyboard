@@ -8,10 +8,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalPerDay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainController" customModule="CalPerDay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,9 +22,15 @@
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MoL-zK-0qV">
                                 <rect key="frame" x="20" y="28" width="51" height="31"/>
+                                <connections>
+                                    <action selector="clickUsUnit" destination="BYZ-38-t0r" eventType="valueChanged" id="Yew-3E-PuJ"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91m-M8-XRu">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="91m-M8-XRu">
                                 <rect key="frame" x="108" y="28" width="51" height="31"/>
+                                <connections>
+                                    <action selector="clickMetricUnit" destination="BYZ-38-t0r" eventType="valueChanged" id="Lpt-7o-YSo"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jr6-ju-qj1">
                                 <rect key="frame" x="77" y="25" width="23" height="37"/>
@@ -61,9 +67,15 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESP-sz-a0P">
                                 <rect key="frame" x="85" y="74" width="51" height="31"/>
+                                <connections>
+                                    <action selector="clickFemale" destination="BYZ-38-t0r" eventType="valueChanged" id="g3w-0e-0oE"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ix3-DB-fFG">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ix3-DB-fFG">
                                 <rect key="frame" x="206" y="74" width="51" height="31"/>
+                                <connections>
+                                    <action selector="clickMale" destination="BYZ-38-t0r" eventType="valueChanged" id="ngI-AI-gy9"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gy-Xz-6qe">
                                 <rect key="frame" x="20" y="120" width="54" height="21"/>
@@ -333,6 +345,20 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="activityLevelButton" destination="SaK-1D-y6g" id="JEz-A6-xQ7"/>
+                        <outlet property="actualMetabolismCalPerDayLabel" destination="f1F-oT-cpn" id="Tgp-M0-EZH"/>
+                        <outlet property="actualMetabolismCalPerHourLabel" destination="DJC-Ty-nIq" id="Agx-cX-BS5"/>
+                        <outlet property="ageTextField" destination="ODI-yo-hwQ" id="KBr-LD-TeH"/>
+                        <outlet property="femaleSwitch" destination="ESP-sz-a0P" id="Izg-Ho-GnS"/>
+                        <outlet property="heightTextField1" destination="sHh-5r-ygh" id="Tpv-mL-LKB"/>
+                        <outlet property="heightTextField2" destination="F6h-Po-GFV" id="oxs-RI-wCM"/>
+                        <outlet property="maleSwitch" destination="ix3-DB-fFG" id="orZ-ec-Jok"/>
+                        <outlet property="metricUnitSwitch" destination="91m-M8-XRu" id="aaB-zt-wPT"/>
+                        <outlet property="restingMetabolismCalPerDayLabel" destination="IpP-C5-N4R" id="N7L-Hi-lTY"/>
+                        <outlet property="usUnitSwitch" destination="MoL-zK-0qV" id="ErV-SM-1Ga"/>
+                        <outlet property="weightTextField" destination="CCm-mZ-uNM" id="nNX-4n-45S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
