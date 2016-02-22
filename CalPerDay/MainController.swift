@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainController: UIViewController, UITextFieldDelegate {
+class MainController: UIViewController {
     
     var calculatorBrain: CalculatorBrain!
     
@@ -36,34 +36,24 @@ class MainController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var actualMetabolismCalPerHourLabel: UILabel!
     @IBOutlet weak var restingMetabolismCalPerDayLabel: UILabel!
     
-    
     var alertController: UIAlertController!
     
-//    var weightInMetricUnit: Double {
-//        get {
-//            if calculatorBrain.isUsUnitSelected! { // us unit
-//                return calculatorBrain.weightInUsUnit(kg: getDoubleFromString(mainView.weightTextField.text!))
-//            } else { // metric unit
-//                return getDoubleFromString(mainView.weightTextField.text!)
-//            }
-//        }
-//    }
-//    
-//    var heightInMetricUnit: Double {
-//        get {
-//            if calculatorBrain.isUsUnitSelected! { // us unit
-//                return calculatorBrain.heightInMetricUnit(feet: getDoubleFromString(mainView.firstHeightTextField.text!), inch: getDoubleFromString(mainView.secondHeightTextField.text!))
-//            } else { // metric unit
-//                return getDoubleFromString(mainView.firstHeightTextField.text!)
-//            }
-//        }
-//    }
+//    var weightInMetricUnit: Double! // kg
+//    var heightInMetricUnit: Double! // cm
     
     // MARK: - VC life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculatorBrain = CalculatorBrain(isUsUnitSelected: true, isFemaleSelected: true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        calculatorBrain = CalculatorBrain()
+        initAlertController()
+    }
+    
+    private func initAlertController() {
         alertController = UIAlertController(title: "Activity Level", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
         alertController.addAction(UIAlertAction(title: "Sedentary", style: UIAlertActionStyle.Default, handler: { (_) in
             self.activityLevelButton.setTitle("Sedentary", forState: UIControlState.Normal)
@@ -82,107 +72,134 @@ class MainController: UIViewController, UITextFieldDelegate {
         }))
     }
     
-    // MARK: - Text field delegate
+    // MARK: - Unit selection
     
-//    func textFieldDidEndEditing(textField: UITextField) {
-//        if textField == mainView.weightTextField {
-//            if calculatorBrain.isUsUnitSelected! {
-////                calculatorBrain.weightInMetricUnit = CalculatorBrain.Constants.OneKgToLbs * Double(getIntFromString(textField.text!))
-//            } else {
-////                calculatorBrain.weightInMetricUnit = Double(getIntFromString(textField.text!))
-//            }
-//        } else {
-//            if calculatorBrain.isUsUnitSelected! {
-////                calculatorBrain.heightInMetricUnit = calculatorBrain.getHeightInMetricUnit(feet: getIntFromString(mainView.firstHeightTextField.text!), inch: getIntFromString(mainView.secondHeightTextField.text!))
-//            } else {
-////                calculatorBrain.heightInMetricUnit = Double(getIntFromString(mainView.firstHeightTextField.text!))
-//            }
-//        }
-//    }
-    
-    // MARK: - Action
-    
+    /*
+        Four things to do.
+        (1) trigger the other switch.
+        (2) show/hide views if needed.
+        (3) update weight and height value.
+        (4) update weight and height unit.
+        (5) update metabolism value.
+    */
     @IBAction func clickUsUnit() {
+        // (1) trigger the other switch.
         metricUnitSwitch.on = !usUnitSwitch.on
-        convertWeight()
-        convertHeight()
+        
+        // (2) show/hide views if needed.
+        updateViewsVisibility()
+        
+        // (3) update weight and height value.
+        updateWeightValue()
+        updateHeightValue()
+        
+        // (4) update weight and height unit.
+        updateUnits()
+        
+        // (5) update metabolism value.
+        updateMetabolism()
     }
     
     @IBAction func clickMetricUnit() {
+        // (1) trigger the other switch.
         usUnitSwitch.on = !metricUnitSwitch.on
-        convertWeight()
-        convertHeight()
+        
+        // (2) show/hide views if needed.
+        updateViewsVisibility()
+        
+        // (3) update weight and height value.
+        updateWeightValue()
+        updateHeightValue()
+        
+        // (4) update weight and height unit.
+        updateUnits()
+        
+        // (5) update metabolism value.
+        updateMetabolism()
     }
     
+    // MARK: - Gender selection
+    
+    /*
+        Two things to do.
+        (1) trigger the other switch.
+        (2) update metabolism value.
+    */
     @IBAction func clickFemale() {
+        // (1) trigger the other switch.
         maleSwitch.on = !femaleSwitch.on
+        
+        // (2) update metabolism value.
+        updateMetabolism()
     }
     
     @IBAction func clickMale() {
+        // (1) trigger the other switch.
         femaleSwitch.on = !maleSwitch.on
+        
+        // (2) update metabolism value.
+        updateMetabolism()
     }
     
+    // MARK: - Activity level selection
+    
+    /*
+        Update metabolism value.
+    */
     @IBAction func clickActvityLevelButton(sender: UIButton) {
         presentViewController(alertController, animated: false) {
-            
+            self.updateMetabolism()
         }
-        print(1)
     }
     
-    private func convertWeight() {
-        weightUnitLabel.text = usUnitSwitch.on ? "lbs" : "kg"
-//        mainView.weightTextField.resignFirstResponder()
-//        
-//        calculatorBrain.isUsUnitSelected = mainView.usUnitSwitch.on
-//        
-//        if calculatorBrain.isUsUnitSelected! { // convert to us unit
-////            let weight = getIntFromString(mainView.weightTextField.text!)
-////            mainView.weightTextField.text = "\(calculatorBrain.getWeightInUsUnit())"
-//            mainView.weightUnitLabel.text = MainView.Constants.WeightUnitLabelUSText
-//        } else { // convert to metric unit
-////            let weight = getIntFromString(mainView.weightTextField.text!)
-//            mainView.weightTextField.text = "\(calculatorBrain.weightInMetricUnit)"
-//            mainView.weightUnitLabel.text = MainView.Constants.WeightUnitLabelI18nText
-//        }
-    }
+    // MARK: - Internal methods
     
-    private func convertHeight() {
-        heightUnitLabel1.text = usUnitSwitch.on ? "ft" : "cm"
+    private func updateViewsVisibility() {
         heightTextField2.hidden = !usUnitSwitch.on
         heightUnitLabel2.hidden = !usUnitSwitch.on
-//        mainView.firstHeightTextField.resignFirstResponder()
-//        mainView.secondHeightTextField.resignFirstResponder()
-//        
-//        calculatorBrain.isUsUnitSelected = mainView.usUnitSwitch.on
-//        
-//        if calculatorBrain.isUsUnitSelected! { // convert to us unit
-//            mainView.secondHeightTextField.hidden = false
-//            mainView.secondHeightUnitLabel.hidden = false
-//            mainView.firstHeightUnitLabel.text = MainView.Constants.FirstHeightUnitLabelUSText
-//            mainView.secondHeightUnitLabel.text = MainView.Constants.SecondHeightUnitLabelUSText
-//            
-////            if let height = Int(mainView.firstHeightTextField.text!) {
-////                let (feet, inch) = calculatorBrain.getHeightInUsUnit()
-////                mainView.firstHeightTextField.text = "\(feet)"
-////                mainView.secondHeightTextField.text = "\(inch)"
-////            }
-//        } else { // convert to metric unit
-//            mainView.secondHeightTextField.hidden = true
-//            mainView.secondHeightUnitLabel.hidden = true
-//            mainView.firstHeightUnitLabel.text = MainView.Constants.FirstHeightUnitLabelMetricText
-//            
-////            let (feet, inch) = (getIntFromString(mainView.firstHeightTextField.text!), getIntFromString(mainView.secondHeightTextField.text!))
-////            mainView.firstHeightTextField.text = "\(Int(round(calculatorBrain.getHeightInMetricUnit(feet: feet, inch: inch))))"
-//        }
     }
     
-//    private func getIntFromString(s: String) -> Int {
-//        if s == "" {
-//            return 0
-//        } else {
-//            return Int(s)!
-//        }
-//    }
+    private func updateUnits() {
+        weightUnitLabel.text = usUnitSwitch.on ? "lbs" : "kg"
+        heightUnitLabel1.text = usUnitSwitch.on ? "ft" : "cm"
+    }
+    
+    private func updateWeightValue() {
+        if usUnitSwitch.on {
+            let weightInMetricUnit = getDoubleFromString(weightTextField.text!)
+            let weightInUsUnit = calculatorBrain.weightInUsUnit(kg: weightInMetricUnit)
+            weightTextField.text = "\(Int(weightInUsUnit))"
+        } else {
+            let weightInUsUnit = getDoubleFromString(weightTextField.text!)
+            let weightInMetricUnit = calculatorBrain.weightInMetricUnit(lbs: weightInUsUnit)
+            weightTextField.text = "\(Int(weightInMetricUnit))"
+        }
+    }
+    
+    private func updateHeightValue() {
+        if usUnitSwitch.on {
+            let heightInMetricUnit = getDoubleFromString(heightTextField1.text!)
+            let weightInUsUnit = calculatorBrain.heightInUsUnit(cm: heightInMetricUnit)
+            heightTextField1.text = "\(Int(weightInUsUnit.0))"
+            heightTextField2.text = "\(Int(weightInUsUnit.1))"
+        } else {
+            let heightInUsUnit = (getDoubleFromString(heightTextField1.text!), getDoubleFromString(heightTextField2.text!))
+            let heightInMetricUnit = calculatorBrain.heightInMetricUnit(feet: heightInUsUnit.0, inch: heightInUsUnit.1)
+            heightTextField1.text = "\(Int(heightInMetricUnit))"
+        }
+    }
+    
+    private func updateMetabolism() {
+        
+    }
+    
+    private func getIntFromString(s: String) -> Int {
+        if s == "" {
+            return 0
+        } else {
+            return Int(s)!
+        }
+    }
     
     private func getDoubleFromString(s: String) -> Double {
         if s == "" {

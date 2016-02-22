@@ -9,14 +9,6 @@
 import Foundation
 
 class CalculatorBrain {
-    var isUsUnitSelected: Bool!
-    var isFemaleSelected: Bool!
-    
-    init(isUsUnitSelected: Bool = true, isFemaleSelected: Bool = true) {
-        self.isUsUnitSelected = isUsUnitSelected
-        self.isFemaleSelected = isFemaleSelected
-    }
-        
     // kg to lbs
     func weightInUsUnit(kg kg: Double) -> Double {
         return kg * Constants.OneKgToLbs
