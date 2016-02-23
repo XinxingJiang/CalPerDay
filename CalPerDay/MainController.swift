@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainController: UIViewController {
+class MainController: UIViewController, UITextFieldDelegate {
     
     var calculatorBrain: CalculatorBrain!
     
@@ -38,13 +38,42 @@ class MainController: UIViewController {
     
     var alertController: UIAlertController!
     
-//    var weightInMetricUnit: Double! // kg
-//    var heightInMetricUnit: Double! // cm
+    var weightInMetricUnit: Double { // kg
+        get {
+            if usUnitSwitch.on {
+                let weightInUsUnit = getDoubleFromString(weightTextField.text!)
+                return calculatorBrain.weightInMetricUnit(lbs: weightInUsUnit)
+            } else {
+                return getDoubleFromString(weightTextField.text!)
+            }
+        }
+    }
+    
+    var heightInMetricUnit: Double { // cm
+        get {
+            if usUnitSwitch.on {
+                let heightInUsUnit = (getDoubleFromString(heightTextField1.text!), getDoubleFromString(heightTextField2.text!))
+                return calculatorBrain.heightInMetricUnit(feet: heightInUsUnit.0, inch: heightInUsUnit.1)
+            } else {
+                return getDoubleFromString(heightTextField1.text!)
+            }
+        }
+    }
+    
+    var age: Int {
+        get {
+            return getIntFromString(ageTextField.text!)
+        }
+    }
     
     // MARK: - VC life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        weightTextField.delegate = self
+        heightTextField1.delegate = self
+        heightTextField2.delegate = self
+        ageTextField.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -53,23 +82,11 @@ class MainController: UIViewController {
         initAlertController()
     }
     
-    private func initAlertController() {
-        alertController = UIAlertController(title: "Activity Level", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alertController.addAction(UIAlertAction(title: "Sedentary", style: UIAlertActionStyle.Default, handler: { (_) in
-            self.activityLevelButton.setTitle("Sedentary", forState: UIControlState.Normal)
-        }))
-        alertController.addAction(UIAlertAction(title: "Lightly Active", style: UIAlertActionStyle.Default, handler: { (_) in
-            self.activityLevelButton.setTitle("Lightly Active", forState: UIControlState.Normal)
-        }))
-        alertController.addAction(UIAlertAction(title: "Moderately Active", style: UIAlertActionStyle.Default, handler: { (_) in
-            self.activityLevelButton.setTitle("Moderately Active", forState: UIControlState.Normal)
-        }))
-        alertController.addAction(UIAlertAction(title: "Very Active", style: UIAlertActionStyle.Default, handler: { (_) in
-            self.activityLevelButton.setTitle("Very Active", forState: UIControlState.Normal)
-        }))
-        alertController.addAction(UIAlertAction(title: "Extremely Active", style: UIAlertActionStyle.Default, handler: { (_) in
-            self.activityLevelButton.setTitle("Extremely Active", forState: UIControlState.Normal)
-        }))
+    // MARK: - Text field delegate
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        updateMetabolism()
+        textField.resignFirstResponder()
     }
     
     // MARK: - Unit selection
@@ -148,11 +165,34 @@ class MainController: UIViewController {
     */
     @IBAction func clickActvityLevelButton(sender: UIButton) {
         presentViewController(alertController, animated: false) {
-            self.updateMetabolism()
         }
     }
     
     // MARK: - Internal methods
+    
+    private func initAlertController() {
+        alertController = UIAlertController(title: "Activity Level", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        alertController.addAction(UIAlertAction(title: Constants.ActivityLevel1, style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle(Constants.ActivityLevel1, forState: UIControlState.Normal)
+            self.updateMetabolism()
+        }))
+        alertController.addAction(UIAlertAction(title: Constants.ActivityLevel2, style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle(Constants.ActivityLevel2, forState: UIControlState.Normal)
+            self.updateMetabolism()
+        }))
+        alertController.addAction(UIAlertAction(title: Constants.ActivityLevel3, style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle(Constants.ActivityLevel3, forState: UIControlState.Normal)
+            self.updateMetabolism()
+        }))
+        alertController.addAction(UIAlertAction(title: Constants.ActivityLevel4, style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle(Constants.ActivityLevel4, forState: UIControlState.Normal)
+            self.updateMetabolism()
+        }))
+        alertController.addAction(UIAlertAction(title: Constants.ActivityLevel5, style: UIAlertActionStyle.Default, handler: { (_) in
+            self.activityLevelButton.setTitle(Constants.ActivityLevel5, forState: UIControlState.Normal)
+            self.updateMetabolism()
+        }))
+    }
     
     private func updateViewsVisibility() {
         heightTextField2.hidden = !usUnitSwitch.on
@@ -166,8 +206,7 @@ class MainController: UIViewController {
     
     private func updateWeightValue() {
         if usUnitSwitch.on {
-            let weightInMetricUnit = getDoubleFromString(weightTextField.text!)
-            let weightInUsUnit = calculatorBrain.weightInUsUnit(kg: weightInMetricUnit)
+            let weightInUsUnit = calculatorBrain.weightInUsUnit(kg: getDoubleFromString(weightTextField.text!))
             weightTextField.text = "\(Int(weightInUsUnit))"
         } else {
             let weightInUsUnit = getDoubleFromString(weightTextField.text!)
@@ -190,7 +229,12 @@ class MainController: UIViewController {
     }
     
     private func updateMetabolism() {
-        
+        let restingMetabolismPerDay = calculatorBrain.restingMetabolismPerDay(isFeMale: femaleSwitch.on, weightInMetricUnit: weightInMetricUnit, heightInMetricUnit: heightInMetricUnit, age: age)
+        let actualMetabolismPerDay = calculatorBrain.actualMetabolismPerDay(restingMetabolismPerDay: restingMetabolismPerDay, activityLevel: activityLevelButton.titleForState(UIControlState.Normal)!)
+        let actualMetabolismPerHour = calculatorBrain.actualMetabolismPerHour(actualMetabolismPerDay: actualMetabolismPerDay)
+        actualMetabolismCalPerDayLabel.text = "\(Int(actualMetabolismPerDay))"
+        actualMetabolismCalPerHourLabel.text = "\(Int(actualMetabolismPerHour))"
+        restingMetabolismCalPerDayLabel.text = "\(Int(restingMetabolismPerDay))"
     }
     
     private func getIntFromString(s: String) -> Int {
@@ -206,5 +250,15 @@ class MainController: UIViewController {
             return 0.0
         }
         return Double(s)!
+    }
+    
+    // MARK: - Constants
+    
+    struct Constants {
+        static let ActivityLevel1 = "Sedentary"
+        static let ActivityLevel2 = "Lightly Active"
+        static let ActivityLevel3 = "Moderately Active"
+        static let ActivityLevel4 = "Very Active"
+        static let ActivityLevel5 = "Extremely Active"
     }
 }

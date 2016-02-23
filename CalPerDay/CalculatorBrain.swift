@@ -31,6 +31,29 @@ class CalculatorBrain {
         return feet * Constants.OneFootToCm + inch * Constants.OneInchToCm
     }
     
+    func restingMetabolismPerDay(isFeMale isFeMale: Bool, weightInMetricUnit: Double, heightInMetricUnit: Double, age: Int) -> Double {
+        if isFeMale {
+            return 655 + (4.35 * weightInMetricUnit * Constants.OneKgToLbs) + (4.7 * heightInMetricUnit / Constants.OneInchToCm) - (4.7 * Double(age))
+        } else {
+            return 66 + (6.23 * weightInMetricUnit * Constants.OneKgToLbs) + (12.7 * heightInMetricUnit / Constants.OneInchToCm) - (6.8 * Double(age))
+        }
+    }
+    
+    func actualMetabolismPerDay(restingMetabolismPerDay restingMetabolismPerDay: Double, activityLevel: String) -> Double {
+        switch activityLevel {
+        case MainController.Constants.ActivityLevel1: return restingMetabolismPerDay * 1.2
+        case MainController.Constants.ActivityLevel2: return restingMetabolismPerDay * 1.375
+        case MainController.Constants.ActivityLevel3: return restingMetabolismPerDay * 1.55
+        case MainController.Constants.ActivityLevel4: return restingMetabolismPerDay * 1.725
+        case MainController.Constants.ActivityLevel5: return restingMetabolismPerDay * 1.9
+        default: return 0
+        }
+    }
+    
+    func actualMetabolismPerHour(actualMetabolismPerDay actualMetabolismPerDay: Double) -> Double {
+        return actualMetabolismPerDay / 24
+    }
+    
     // MARK: - Constants
     
     struct Constants {
